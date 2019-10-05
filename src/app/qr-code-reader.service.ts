@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 declare const qrcode: any;
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class QrCodeReader {
 
   decode(file: any): Observable<string> {

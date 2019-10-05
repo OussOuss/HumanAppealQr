@@ -1,6 +1,10 @@
 {
   "name": "human-appeal-qr",
-  "version": "0.0.0",
+  "displayName": "HumanAppealQrApp",
+  "version": "1.0.0",
+  "author": "Apache Cordova Team",
+  "main": "index.js",
+  "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,7 +23,16 @@
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
+    "bootstrap": "^3.3.7",
+    "cordova-android": "^8.1.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-splashscreen": "^5.0.3",
+    "ionic": "^5.4.2",
+    "jquery": "^3.4.1",
+    "properties-parser": "^0.3.1",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
@@ -43,5 +56,15 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-splashscreen": {}
+    },
+    "platforms": [
+      "browser",
+      "android"
+    ]
   }
 }

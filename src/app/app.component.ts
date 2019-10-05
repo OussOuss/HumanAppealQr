@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { QrCodeReader } from 'app/qr-code-reader.service';
+import { QrCodeReader } from './qr-code-reader.service';
 import { Subscription } from 'rxjs/Subscription';
 
 
