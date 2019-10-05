@@ -30,6 +30,7 @@
     "cordova-plugin-splashscreen": "^5.0.3",
     "ionic": "^5.4.2",
     "jquery": "^3.4.1",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "properties-parser": "^0.3.1",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
@@ -60,7 +61,10 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-splashscreen": {}
+      "cordova-plugin-splashscreen": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
       "browser",

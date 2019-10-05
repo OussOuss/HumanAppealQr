@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { QrCodeReader } from './qr-code-reader.service';
+import { QrCodeReader } from './qr-code.service';
 import { Subscription } from 'rxjs/Subscription';
 
 
@@ -23,5 +23,9 @@ export class AppComponent implements OnDestroy {
     const file = event.target.files[0];
     this.subscription = this.qrReader.decode(file)
       .subscribe(decodedString => console.log(decodedString));
+  }
+
+  onSwitchMode() {
+    this.qrReader.scanQrCode();
   }
 }

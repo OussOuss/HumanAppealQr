@@ -16,6 +16,10 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.humanappeal.qr"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.humanappeal.qr"
     }
   },
   "dependent_plugins": {}

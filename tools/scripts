@@ -1,6 +1,6 @@
 1)./signer.sh
 2) keytool" -genkey -v -keystore haq.keystore -alias humanappealqrapps -keyalg RSA -keysize 2048 -validity 10000
-3) ng build --prod --aot
+3) ng build --prod --aot --output-path=www
 4) cordova build android
 5) cordova emulate android
 6) cordova build --release android
