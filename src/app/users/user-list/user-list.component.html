@@ -1,3 +1,11 @@
+<form [formGroup]="userForm">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input formControlName="query"  [(ngModel)]="filteredStatus" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Rechercher par nom"
+    aria-label="Rechercher par nom">
+</form>
+
+<hr>
+
 <div class="row">
   <div class="col-xs-12">
     <button class="btn btn-success" (click)="onNewuser()">Nouveau bénéficiaire</button>
@@ -7,7 +15,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-user-item
-      *ngFor="let userEl of users; let i = index"
+      *ngFor="let userEl of users | search:filteredStatus:'lastName'; let i = index"
       [user]="userEl"
       [index]="i"></app-user-item>
   </div>

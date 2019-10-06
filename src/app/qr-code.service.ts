@@ -1,31 +1,36 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { userService } from "./users/user.service";
+import { DataStorageService } from "./shared/data-storage.service";
+import { QrCode } from "./shared/qr-code.model";
+import { user } from './users/user.model';
 
-declare const qrcode: any;
 declare const varScanApp: any;
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class QrCodeReader {
+  constructor(
+    private dataStorageService: DataStorageService,
+    private usersService: userService
+  ) {}
 
-  decode(file: any): Observable<string> {
+  scanQrCode(): number {
+    const qrCodeValue = varScanApp.scan();
+    console.log('Value of QrCode scanned : ' + qrCodeValue);
+    const qrCode = this.resovleQrCode(qrCodeValue);
+    const users = this.usersService.getusers();
 
-    return new Observable(observer => {
-
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e: any) => {
-        const data = e.target.result;
-        qrcode.callback = (res) => {
-          observer.next(res);
-          observer.complete();
-        };
-        qrcode.decode(data);
-      };
-
-    });
+    if (users && qrCode) {
+      return users.findIndex(
+        u => u.typeIdentifiant === qrCode.typeIdentifiant && u.identifiant === qrCode.identifiant
+      );
+    }
   }
 
-  scanQrCode(): void {
-    varScanApp.scan();
+  resovleQrCode(qrCode: string) {
+    if (qrCode && qrCode.length > 0 && qrCode.includes('-')) {
+      const splitted = qrCode.split('-');
+      return new QrCode(splitted[0], splitted[1]);
+    }
   }
 }

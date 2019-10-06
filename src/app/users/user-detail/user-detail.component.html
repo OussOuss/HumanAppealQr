@@ -1,36 +1,59 @@
+<h1 class="text-center text-uppercase m-4">Informations : </h1>
 <div class="row">
-  <div class="col-xs-12">
-    <img
-      [src]="user.imagePath"
-      alt="{{ user.name }}"
-      class="img-responsive"
-      style="max-height: 300px;">
+  <div class="col-md-5">
+    <dl class="row">
+      <dt  *ngIf="user.firstName">Prénom</dt>
+      <dd  *ngIf="user.firstName">{{ user.firstName }}</dd>
+
+      <dt  *ngIf="user.lastName">Nom</dt>
+      <dd  *ngIf="user.lastName">{{ user.lastName }}</dd>
+
+      <dt  *ngIf="user.adresse">Adresse</dt>
+      <dd  *ngIf="user.adresse">{{ user.adresse }}</dd>
+
+      <dt  *ngIf="user.dateNaissance" >Date de naissance </dt>
+      <dd  *ngIf="user.dateNaissance">{{ user.dateNaissance }}</dd>
+
+      <dt  *ngIf="user.lieuNaissance">Lieu de naissance </dt>
+      <dd  *ngIf="user.lieuNaissance">{{ user.lieuNaissance }}</dd>
+
+      <dt  *ngIf="user.genders">Genre </dt>
+      <dd  *ngIf="user.genders">{{ user.genders }}</dd>
+
+      <dt  *ngIf="user.typeIdentifiant">Type identifiant </dt>
+      <dd  *ngIf="user.typeIdentifiant">{{ user.typeIdentifiant }}</dd>
+
+      <dt  *ngIf="user.identifiant">Identifiant </dt>
+      <dd  *ngIf="user.identifiant">{{ user.identifiant }}</dd>
+
+      <dt  *ngIf="user.telephone">Téléphone </dt>
+      <dd  *ngIf="user.telephone">{{ user.telephone }}</dd>
+
+      <dt  *ngIf="user.email">
+         </dt>
+      <dd  *ngIf="user.email">{{ user.email }}</dd>
+    </dl>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{ user.name }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
-        Manage user <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a style="cursor: pointer;" (click)="onEdituser()">Edit user</a></li>
-        <li><a style="cursor: pointer;" (click)="onDeleteuser()">Delete user</a></li>
-      </ul>
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-xs-12">
+        <div
+          class="btn-group"
+          appDropdown>
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle">
+           Action <span class="glyphicon glyphicon-th" aria-hidden="true" ></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a style="cursor: pointer;" (click)="onEdituser()">Modifier <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+            <li><a style="cursor: pointer;" (click)="onDeleteuser()">Supprimer <span class="glyphicon glyphicon-remove" aria-hidden="true" ></span></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ user.description }}
-  </div>
-</div>
+
+

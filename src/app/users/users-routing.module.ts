@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { usersComponent } from './users.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { userStartComponent } from './user-start/user-start.component';
 import { userEditComponent } from './user-edit/user-edit.component';
 import { userDetailComponent } from './user-detail/user-detail.component';
 import { usersResolverService } from './users-resolver.service';
+import { userStartComponent } from './user-start/user-start.component';
 
 const routes: Routes = [
   {

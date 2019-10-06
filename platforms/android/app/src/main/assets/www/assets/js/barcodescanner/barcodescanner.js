@@ -11,13 +11,15 @@ let varScanApp = {
       Log.initialize(app.displayLogLine);
   },
   scan: function () {
+    var result = null;
       window.cordova.plugins.barcodeScanner.scan(
               function (result) {
-                  alert("Barcode/QR code data\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);
+                result=  result.text;
               },
               function (error) {
-                  alert("Scanning failed: " + error);
+                result = "Scanning failed: " + error;
               }
       );
+      return result;
   },
 };

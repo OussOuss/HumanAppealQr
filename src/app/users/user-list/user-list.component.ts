@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { user } from '../user.model';
 import { userService } from '../user.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-list',
@@ -13,13 +14,15 @@ import { userService } from '../user.service';
 export class userListComponent implements OnInit, OnDestroy {
   users: user[];
   subscription: Subscription;
-
+  userForm: FormGroup;
+  filteredStatus: string;
   constructor(private userService: userService,
               private router: Router,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.initForm();
     this.subscription = this.userService.usersChanged
       .subscribe(
         (users: user[]) => {
@@ -35,5 +38,12 @@ export class userListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  private initForm() {
+    let query = '';
+    this.userForm = new FormGroup({
+      query: new FormControl(query)
+    });
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { user } from '../user.model';
 import { userService } from '../user.service';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,7 +16,7 @@ export class userDetailComponent implements OnInit {
 
   constructor(private userService: userService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router, private dataStorageService: DataStorageService) {
   }
 
   ngOnInit() {
@@ -30,11 +31,11 @@ export class userDetailComponent implements OnInit {
 
   onEdituser() {
     this.router.navigate(['edit'], {relativeTo: this.route});
-    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
   onDeleteuser() {
     this.userService.deleteuser(this.id);
+    this.dataStorageService.storeusers();
     this.router.navigate(['/users']);
   }
 

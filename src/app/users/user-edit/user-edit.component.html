@@ -1,6 +1,152 @@
 <div class="row">
   <div class="col-xs-12">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input
+              type="text"
+              id="firstName"
+              formControlName="firstName"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Nom</label>
+            <input
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <textarea
+              type="text"
+              id="adresse"
+              class="form-control"
+              formControlName="adresse"
+              rows="6"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Date de naissance</label>
+            <input
+              type="text"
+              id="dateNaissance"
+              formControlName="dateNaissance"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Lieu de naissance</label>
+            <input
+              type="text"
+              id="lieuNaissance"
+              formControlName="lieuNaissance"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Genre</label>
+            <div class="radio" *ngFor="let gender of genders">
+              <label>
+                <input
+                  type="radio"
+                  formControlName="genders"
+                  [value]="gender">{{ gender }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="status">Type identifiant</label>
+            <select
+            id="status"
+            formControlName="typeIdentifiant"
+            class="form-control">
+            <option value="p">Passeport</option>
+            <option value="cs">Carte de séjour</option>
+            <option value="ci">Carte d'identité</option>
+          </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Identifiant</label>
+            <input
+              type="text"
+              id="identifiant"
+              formControlName="identifiant"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Téléphone</label>
+            <input
+              type="text"
+              id="telephone"
+              formControlName="telephone"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="firstName">Email</label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+
       <div class="row">
         <div class="col-xs-12">
           <button
@@ -8,60 +154,13 @@
             class="btn btn-success"
             [disabled]="!userForm.valid"
           >
-            Enregistrer
+          Enregistrer <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true" ></span>
           </button>
-          <button type="button" class="btn btn-danger" (click)="onCancel()">
-            Annuler
+          Annuler <button type="button" class="btn btn-danger" (click)="onCancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ></span>
           </button>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="name">Nom</label>
-            <input
-              type="text"
-              id="name"
-              formControlName="name"
-              class="form-control"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="imagePath">Lien de l'image</label>
-            <input
-              type="text"
-              id="imagePath"
-              formControlName="imagePath"
-              class="form-control"
-              #imagePath
-            />
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <img [src]="imagePath.value" class="img-responsive" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea
-              type="text"
-              id="description"
-              class="form-control"
-              formControlName="description"
-              rows="6"
-            ></textarea>
-          </div>
-        </div>
-      </div>
-
     </form>
   </div>
 </div>
