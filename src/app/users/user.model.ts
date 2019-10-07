@@ -9,9 +9,11 @@ export class user {
   public identifiant: string;
   public telephone: string;
   public email: string;
+  public checked : boolean;
+  public lastDateChecked : string;
 
 
-  constructor(firstName: string, lastName: string , adresse: string, dateNaissance : string , lieuNaissance : string , genders: string , typeIdentifiant : string , identifiant : string, telephone : string, email : string) {
+  constructor(firstName: string, lastName: string , adresse: string, dateNaissance : string , lieuNaissance : string , genders: string , typeIdentifiant : string , identifiant : string, telephone : string, email : string, checked : boolean, lastDateChecked : string) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.adresse = adresse;
@@ -22,5 +24,7 @@ export class user {
     this.identifiant = identifiant;
     this.telephone = telephone;
     this.email = email;
+    this.checked = checked;
+    this.lastDateChecked = lastDateChecked;
   }
 }

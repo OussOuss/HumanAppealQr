@@ -25,11 +25,17 @@ export class userService {
   }
 
   adduser(user: user) {
+    if(user.checked){
+      user.lastDateChecked = new Date().getTime().toString();
+    }
     this.users.push(user);
     this.usersChanged.next(this.users.slice());
   }
 
   updateuser(index: number, newuser: user) {
+    if(newuser.checked){
+      newuser.lastDateChecked = new Date().getTime().toString();
+    }
     this.users[index] = newuser;
     this.usersChanged.next(this.users.slice());
   }

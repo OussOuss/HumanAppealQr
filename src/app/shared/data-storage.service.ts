@@ -40,8 +40,26 @@ export class DataStorageService {
           });
         }),
         tap(users => {
+
+          let valueChanged = false;
+          users.map(user => {
+            if(user && user.lastDateChecked && user.lastDateChecked!==null){
+              let dateChecked = new Date(+user.lastDateChecked);
+              if(!this.isToday(dateChecked) && user.checked){
+                user.checked = false;
+                valueChanged=true;
+              }
+            };
+          });
           this.userService.setusers(users);
+          if(valueChanged){
+            this.storeusers();
+          }
         })
       );
+  }
+  private isToday(dateParameter) {
+    let today = new Date();
+    return dateParameter.getDate() === today.getDate() && dateParameter.getMonth() === today.getMonth() && dateParameter.getFullYear() === today.getFullYear();
   }
 }

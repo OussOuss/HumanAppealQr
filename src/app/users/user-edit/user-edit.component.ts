@@ -55,6 +55,7 @@ export class userEditComponent implements OnInit {
     let identifiant= '';
     let telephone= '';
     let email= '';
+    let checked= false;
 
     if (this.editMode) {
       const user = this.userService.getuser(this.id);
@@ -68,6 +69,7 @@ export class userEditComponent implements OnInit {
       identifiant = user.identifiant;
       telephone = user.telephone;
       email = user.email;
+      checked = user.checked;
     }
 
     this.userForm = new FormGroup({
@@ -80,7 +82,8 @@ export class userEditComponent implements OnInit {
       typeIdentifiant: new FormControl(typeIdentifiant, Validators.required),
       identifiant: new FormControl(identifiant, Validators.required),
       telephone: new FormControl(telephone),
-      email: new FormControl(email, Validators.email)
+      email: new FormControl(email, Validators.email),
+      checked: new FormControl(checked)
     });
   }
 }
